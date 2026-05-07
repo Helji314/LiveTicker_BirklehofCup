@@ -1,8 +1,608 @@
-<html>
-  <head>
-    color: #9cbd28; 
-    background-color: white; 
-  </head>
-  <h1>Birklehof-Cup</h1>
-  <p>Nächstes Match in ... Minuten!</p>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Birklehof Cup Live Ticker">
+  <title>Birklehof Cup Live Ticker</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html, body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+      background-color: #f5f5f5;
+      color: #333;
+      line-height: 1.5;
+    }
+
+    body {
+      background: linear-gradient(135deg, #004E47 0%, #006b63 100%);
+      min-height: 100vh;
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: white;
+      border-radius: 8px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* Header with Logo */
+    header {
+      background: linear-gradient(135deg, #004E47 0%, #006b63 100%);
+      padding: 1.5rem 1rem;
+      text-align: center;
+      color: white;
+    }
+
+    .logo {
+      height: 60px;
+      margin-bottom: 1rem;
+    }
+
+    .logo img {
+      height: 100%;
+      width: auto;
+      max-width: 100%;
+    }
+
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .competition-info {
+      font-size: 0.9rem;
+      opacity: 0.95;
+    }
+
+    /* Main Countdown */
+    .countdown-section {
+      background: #f9f9f9;
+      padding: 1.5rem 1rem;
+      text-align: center;
+      border-bottom: 3px solid #9cbd28;
+    }
+
+    .countdown-section h2 {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+    }
+
+    .countdown-display {
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #004E47;
+      font-family: 'Courier New', monospace;
+      letter-spacing: 0.05em;
+    }
+
+    /* Sport Navigation */
+    .sport-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      padding: 1rem;
+      background: white;
+      border-bottom: 1px solid #e0e0e0;
+      justify-content: center;
+    }
+
+    .sport-btn {
+      padding: 0.6rem 1rem;
+      border: 2px solid #004E47;
+      background: white;
+      color: #004E47;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 0.85rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      min-height: 44px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sport-btn:hover, .sport-btn:focus {
+      background: #f0f0f0;
+      outline: none;
+    }
+
+    .sport-btn.active {
+      background: #004E47;
+      color: white;
+    }
+
+    .sport-btn.active-accent {
+      border-color: #9cbd28;
+      color: #9cbd28;
+    }
+
+    .sport-btn.active.active-accent {
+      background: #9cbd28;
+      color: white;
+      border-color: #9cbd28;
+    }
+
+    /* Main Content */
+    main {
+      flex: 1;
+      padding: 1rem;
+      overflow-y: auto;
+    }
+
+    /* Next Match Section */
+    .next-match {
+      background: #f9f9f9;
+      padding: 1rem;
+      border-radius: 8px;
+      margin-bottom: 1.5rem;
+      border-left: 4px solid #9cbd28;
+    }
+
+    .next-match h3 {
+      font-size: 0.9rem;
+      color: #666;
+      text-transform: uppercase;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .next-match-sport {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: #004E47;
+      margin-bottom: 0.5rem;
+    }
+
+    .next-match-time {
+      font-size: 1rem;
+      color: #666;
+      margin-bottom: 0.5rem;
+    }
+
+    .next-match-countdown {
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: #9cbd28;
+      font-family: 'Courier New', monospace;
+    }
+
+    /* Match Results */
+    .match {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      padding: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .match-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .match-sport {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: #004E47;
+    }
+
+    .match-status {
+      padding: 0.3rem 0.8rem;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+      text-transform: uppercase;
+    }
+
+    .status-scheduled {
+      background: #e8f4f8;
+      color: #0277bd;
+    }
+
+    .status-ongoing {
+      background: #fff3cd;
+      color: #856404;
+    }
+
+    .status-finished {
+      background: #d4edda;
+      color: #155724;
+    }
+
+    .match-time {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 1rem;
+    }
+
+    .match-results {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 0.5rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .school-result {
+      text-align: center;
+      padding: 0.8rem;
+      background: #f9f9f9;
+      border-radius: 6px;
+    }
+
+    .school-name {
+      font-size: 0.85rem;
+      font-weight: 600;
+      color: #666;
+      margin-bottom: 0.3rem;
+    }
+
+    .school-score {
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: #004E47;
+    }
+
+    .school-score.empty {
+      color: #999;
+    }
+
+    /* Gesamtwertung */
+    .standings {
+      background: white;
+      border: 1px solid #e0e0e0;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .standings-row {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 1rem;
+      padding: 1rem;
+      border-bottom: 1px solid #e0e0e0;
+      align-items: center;
+    }
+
+    .standings-row:last-child {
+      border-bottom: none;
+    }
+
+    .standings-row.header {
+      background: #004E47;
+      color: white;
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+
+    .standings-school {
+      font-weight: 600;
+      color: #004E47;
+    }
+
+    .standings-points {
+      font-size: 1.2rem;
+      font-weight: 700;
+      color: #9cbd28;
+      text-align: right;
+    }
+
+    /* Empty State */
+    .empty-state {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #999;
+    }
+
+    .empty-state p {
+      margin: 1rem 0;
+    }
+
+    /* Accessibility */
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border-width: 0;
+    }
+
+    /* Loading State */
+    .loading {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #666;
+    }
+
+    /* Responsive */
+    @media (max-width: 480px) {
+      .sport-nav {
+        gap: 0.3rem;
+      }
+
+      .sport-btn {
+        padding: 0.5rem 0.8rem;
+        font-size: 0.8rem;
+      }
+
+      .countdown-display {
+        font-size: 2rem;
+      }
+
+      .next-match-countdown {
+        font-size: 1.5rem;
+      }
+
+      header h1 {
+        font-size: 1.5rem;
+      }
+
+      .match-results {
+        gap: 0.3rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="logo">
+        <img src="https://media.licdn.com/dms/image/v2/D4E0BAQEO_-Pd2TrHVQ/company-logo_200_200/company-logo_200_200/0/1700679450215/birklehof_logo?e=2147483647&v=beta&t=GW_D1dG36TjEQWJRj9UhmpqMN_spmmmbJDW_Qf_oJtI" alt="Birklehof Logo">
+      </div>
+      <h1>Birklehof Cup</h1>
+      <p class="competition-info" aria-live="polite" id="competition-status">Wird geladen...</p>
+    </header>
+
+    <section class="countdown-section" aria-live="polite" aria-atomic="true">
+      <h2>Countdown zum Start</h2>
+      <div class="countdown-display" id="main-countdown">-- : -- : --</div>
+    </section>
+
+    <nav class="sport-nav" role="tablist" aria-label="Sportarten">
+      <button class="sport-btn active active-accent" data-sport="all" role="tab" aria-selected="true">Alle</button>
+      <button class="sport-btn" data-sport="Badminton" role="tab" aria-selected="false">Badminton</button>
+      <button class="sport-btn" data-sport="Basketball" role="tab" aria-selected="false">Basketball</button>
+      <button class="sport-btn" data-sport="Volleyball" role="tab" aria-selected="false">Volleyball</button>
+      <button class="sport-btn" data-sport="Hockey" role="tab" aria-selected="false">Hockey</button>
+      <button class="sport-btn" data-sport="Fußball" role="tab" aria-selected="false">Fußball</button>
+      <button class="sport-btn" data-sport="Gesamtwertung" role="tab" aria-selected="false">Gesamtwertung</button>
+    </nav>
+
+    <main role="main">
+      <div id="content">
+        <div class="loading">Wird geladen...</div>
+      </div>
+    </main>
+  </div>
+
+  <script>
+    const COMPETITION_START = new Date('2026-05-09T14:45:00+02:00');
+    const DATA_URL = './schedule.json';
+    let scheduleData = null;
+    let currentSport = 'all';
+
+    // Initialize
+    async function init() {
+      try {
+        const response = await fetch(DATA_URL);
+        if (!response.ok) throw new Error(`HTTP ${response.status}`);
+        scheduleData = await response.json();
+        
+        setupEventListeners();
+        updateAllTimers();
+        setInterval(updateAllTimers, 1000);
+      } catch (err) {
+        console.error('Error loading schedule:', err);
+        document.getElementById('content').innerHTML = `
+          <div class="empty-state">
+            <p>❌ Fehler beim Laden der Zeitplan-Daten.</p>
+            <p>Bitte überprüfen Sie, dass <code>schedule.json</code> vorhanden ist.</p>
+          </div>
+        `;
+      }
+    }
+
+    function setupEventListeners() {
+      document.querySelectorAll('.sport-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          document.querySelectorAll('.sport-btn').forEach(b => {
+            b.classList.remove('active', 'active-accent');
+            b.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          if (btn.dataset.sport === 'all' || btn.dataset.sport === 'Gesamtwertung') {
+            btn.classList.add('active-accent');
+          }
+          btn.setAttribute('aria-selected', 'true');
+          currentSport = btn.dataset.sport;
+          render();
+        });
+      });
+    }
+
+    function updateAllTimers() {
+      updateMainCountdown();
+      render();
+    }
+
+    function updateMainCountdown() {
+      const now = new Date();
+      const diff = COMPETITION_START - now;
+      const display = formatCountdown(diff);
+      document.getElementById('main-countdown').textContent = display;
+
+      // Update competition status
+      const status = document.getElementById('competition-status');
+      if (diff > 0) {
+        const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+        status.textContent = `Beginnt in ${days} Tagen`;
+      } else {
+        status.textContent = 'Event läuft';
+      }
+    }
+
+    function formatCountdown(ms) {
+      if (ms <= 0) return '00 : 00 : 00';
+      const hours = Math.floor((ms % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((ms % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((ms % (1000 * 60)) / 1000);
+      return `${String(hours).padStart(2, '0')} : ${String(minutes).padStart(2, '0')} : ${String(seconds).padStart(2, '0')}`;
+    }
+
+    function getNextMatch() {
+      if (!scheduleData || !scheduleData.matches) return null;
+      const now = new Date();
+      return scheduleData.matches.find(m => new Date(m.scheduledStart) > now) || null;
+    }
+
+    function getMatchesBySport(sport) {
+      if (!scheduleData || !scheduleData.matches) return [];
+      if (sport === 'all') return scheduleData.matches;
+      return scheduleData.matches.filter(m => m.sport === sport);
+    }
+
+    function getMatchStatus(match) {
+      const now = new Date();
+      const start = new Date(match.scheduledStart);
+      const end = new Date(match.scheduledEnd);
+      if (now < start) return 'scheduled';
+      if (now >= start && now < end) return 'ongoing';
+      return 'finished';
+    }
+
+    function renderNextMatch() {
+      const next = getNextMatch();
+      if (!next) return '';
+
+      const startTime = new Date(next.scheduledStart);
+      const now = new Date();
+      const diff = startTime - now;
+      const countdown = formatCountdown(diff);
+
+      return `
+        <div class="next-match">
+          <h3>Nächstes Match</h3>
+          <div class="next-match-sport">${next.sport} ${next.category ? '- ' + next.category : ''}</div>
+          <div class="next-match-time">${startTime.toLocaleString('de-DE', { 
+            weekday: 'short', 
+            month: 'short', 
+            day: 'numeric',
+            hour: '2-digit', 
+            minute: '2-digit' 
+          })}</div>
+          <div class="next-match-countdown" aria-live="polite">${countdown}</div>
+        </div>
+      `;
+    }
+
+    function renderMatches(sport) {
+      const matches = getMatchesBySport(sport);
+      if (matches.length === 0) {
+        return '<div class="empty-state"><p>Keine Matches für diese Sportart.</p></div>';
+      }
+
+      return matches.map(match => {
+        const status = getMatchStatus(match);
+        const startTime = new Date(match.scheduledStart);
+        const statusLabel = {
+          scheduled: 'Geplant',
+          ongoing: 'Läuft',
+          finished: 'Beendet'
+        }[status];
+
+        return `
+          <div class="match">
+            <div class="match-header">
+              <div>
+                <div class="match-sport">${match.sport}${match.category ? ' - ' + match.category : ''}</div>
+                <div style="font-size: 0.85rem; color: #999;">Runde ${match.round}</div>
+              </div>
+              <span class="match-status status-${status}">${statusLabel}</span>
+            </div>
+            <div class="match-time">${startTime.toLocaleString('de-DE', {
+              weekday: 'short',
+              month: 'short',
+              day: 'numeric',
+              hour: '2-digit',
+              minute: '2-digit'
+            })}</div>
+            <div class="match-results">
+              ${scheduleData.schools.map(school => `
+                <div class="school-result">
+                  <div class="school-name">${school}</div>
+                  <div class="school-score ${match.results[school] === null ? 'empty' : ''}">
+                    ${match.results[school] !== null ? match.results[school] : '—'}
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </div>
+        `;
+      }).join('');
+    }
+
+    function renderGesamtwertung() {
+      if (!scheduleData) return '';
+      const sorted = Object.entries(scheduleData.gesamtwertung)
+        .sort(([, a], [, b]) => b - a);
+
+      return `
+        <div class="standings">
+          <div class="standings-row header">
+            <div>Schule</div>
+            <div style="text-align: right;">Punkte</div>
+          </div>
+          ${sorted.map(([school, points]) => `
+            <div class="standings-row">
+              <div class="standings-school">${school}</div>
+              <div class="standings-points">${points}</div>
+            </div>
+          `).join('')}
+        </div>
+      `;
+    }
+
+    function render() {
+      const contentDiv = document.getElementById('content');
+
+      if (!scheduleData) {
+        contentDiv.innerHTML = '<div class="loading">Wird geladen...</div>';
+        return;
+      }
+
+      if (currentSport === 'Gesamtwertung') {
+        contentDiv.innerHTML = renderGesamtwertung();
+      } else {
+        let html = renderNextMatch();
+        html += renderMatches(currentSport);
+        contentDiv.innerHTML = html || '<div class="empty-state"><p>Keine Daten verfügbar.</p></div>';
+      }
+    }
+
+    // Start the app
+    init();
+  </script>
+</body>
 </html>

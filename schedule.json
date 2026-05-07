@@ -1,0 +1,180 @@
+{
+  "competitionName": "Birklehof Cup",
+  "competitionStart": "2026-05-09T14:45:00+02:00",
+  "schools": ["Birklehof", "Bieberstein", "St. Blasien"],
+  "matches": [
+    {
+      "id": "badminton_einzel_w",
+      "sport": "Badminton",
+      "category": "Einzel (w)",
+      "round": 1,
+      "scheduledStart": "2026-05-09T14:45:00+02:00",
+      "scheduledEnd": "2026-05-09T15:30:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "badminton_einzel_m",
+      "sport": "Badminton",
+      "category": "Einzel (m)",
+      "round": 1,
+      "scheduledStart": "2026-05-09T15:35:00+02:00",
+      "scheduledEnd": "2026-05-09T16:20:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "badminton_mixed",
+      "sport": "Badminton",
+      "category": "Mixed double",
+      "round": 1,
+      "scheduledStart": "2026-05-09T16:25:00+02:00",
+      "scheduledEnd": "2026-05-09T17:10:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "basketball_round1",
+      "sport": "Basketball",
+      "category": "Runde 1",
+      "round": 1,
+      "scheduledStart": "2026-05-09T17:15:00+02:00",
+      "scheduledEnd": "2026-05-09T18:00:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "basketball_round2",
+      "sport": "Basketball",
+      "category": "Runde 2",
+      "round": 2,
+      "scheduledStart": "2026-05-09T18:05:00+02:00",
+      "scheduledEnd": "2026-05-09T18:50:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "volleyball_round1",
+      "sport": "Volleyball",
+      "category": "Runde 1",
+      "round": 1,
+      "scheduledStart": "2026-05-09T18:55:00+02:00",
+      "scheduledEnd": "2026-05-09T19:40:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "volleyball_round2",
+      "sport": "Volleyball",
+      "category": "Runde 2",
+      "round": 2,
+      "scheduledStart": "2026-05-09T19:45:00+02:00",
+      "scheduledEnd": "2026-05-09T20:30:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "volleyball_round3",
+      "sport": "Volleyball",
+      "category": "Runde 3",
+      "round": 3,
+      "scheduledStart": "2026-05-09T20:35:00+02:00",
+      "scheduledEnd": "2026-05-09T21:20:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "hockey_round1",
+      "sport": "Hockey",
+      "category": "Runde 1",
+      "round": 1,
+      "scheduledStart": "2026-05-10T10:00:00+02:00",
+      "scheduledEnd": "2026-05-10T10:45:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "hockey_round2",
+      "sport": "Hockey",
+      "category": "Runde 2",
+      "round": 2,
+      "scheduledStart": "2026-05-10T10:50:00+02:00",
+      "scheduledEnd": "2026-05-10T11:35:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "fussball_round1",
+      "sport": "Fußball",
+      "category": "Runde 1",
+      "round": 1,
+      "scheduledStart": "2026-05-10T11:40:00+02:00",
+      "scheduledEnd": "2026-05-10T12:25:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "fussball_round2",
+      "sport": "Fußball",
+      "category": "Runde 2",
+      "round": 2,
+      "scheduledStart": "2026-05-10T12:30:00+02:00",
+      "scheduledEnd": "2026-05-10T13:15:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    }
+  ],
+  "gesamtwertung": {
+    "Birklehof": 0,
+    "Bieberstein": 0,
+    "St. Blasien": 0
+  }
+}

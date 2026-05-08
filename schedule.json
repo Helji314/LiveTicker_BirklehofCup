@@ -116,12 +116,12 @@
       "status": "scheduled"
     },
     {
-      "id": "badminton_einzel_w",
+      "id": "badminton_round1",
       "sport": "Badminton",
-      "category": "Einzel (w)",
+      "category": "Bieberstein vs. St. Blasien",
       "round": 1,
-      "scheduledStart": "2026-05-10T14:45:00+02:00",
-      "scheduledEnd": "2026-05-10T15:30:00+02:00",
+      "scheduledStart": "2026-05-10T09:30:00+02:00",
+      "scheduledEnd": "2026-05-10T10:00:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -130,12 +130,12 @@
       "status": "scheduled"
     },
     {
-      "id": "badminton_einzel_m",
+      "id": "badminton_round2",
       "sport": "Badminton",
-      "category": "Einzel (m)",
-      "round": 1,
-      "scheduledStart": "2026-05-10T15:35:00+02:00",
-      "scheduledEnd": "2026-05-10T16:20:00+02:00",
+      "category": "Birklehof vs. Bieberstein",
+      "round": 2,
+      "scheduledStart": "2026-05-10T10:05:00+02:00",
+      "scheduledEnd": "2026-05-10T10:35:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -144,12 +144,12 @@
       "status": "scheduled"
     },
     {
-      "id": "badminton_mixed",
+      "id": "badminton_round3",
       "sport": "Badminton",
-      "category": "Mixed double",
-      "round": 1,
-      "scheduledStart": "2026-05-10T16:25:00+02:00",
-      "scheduledEnd": "2026-05-10T17:10:00+02:00",
+      "category": "Birklehof vs. St. Blasien",
+      "round": 3,
+      "scheduledStart": "2026-05-10T10:40:00+02:00",
+      "scheduledEnd": "2026-05-10T11:20:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -160,10 +160,10 @@
     {
       "id": "basketball_round1",
       "sport": "Basketball",
-      "category": "Runde 1",
+      "category": "Birklehof vs. Bieberstein",
       "round": 1,
-      "scheduledStart": "2026-05-10T17:15:00+02:00",
-      "scheduledEnd": "2026-05-10T18:00:00+02:00",
+      "scheduledStart": "2026-05-10T11:35:00+02:00",
+      "scheduledEnd": "2026-05-10T12:00:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -174,10 +174,38 @@
     {
       "id": "basketball_round2",
       "sport": "Basketball",
-      "category": "Runde 2",
+      "category": "Birklehof vs. St. Blasien",
       "round": 2,
-      "scheduledStart": "2026-05-10T18:05:00+02:00",
-      "scheduledEnd": "2026-05-10T18:50:00+02:00",
+      "scheduledStart": "2026-05-10T12:05:00+02:00",
+      "scheduledEnd": "2026-05-10T12:30:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "basketball_round3",
+      "sport": "Basketball",
+      "category": "St. Blasien vs. Bieberstein",
+      "round": 3,
+      "scheduledStart": "2026-05-10T12:35:00+02:00",
+      "scheduledEnd": "2026-05-10T13:00:00+02:00",
+      "results": {
+        "Birklehof": null,
+        "Bieberstein": null,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "basketball_finale",
+      "sport": "Basketball",
+      "category": "Finale",
+      "round": 4,
+      "scheduledStart": "2026-05-10T13:05:00+02:00",
+      "scheduledEnd": "2026-05-10T13:30:00+02:00", 
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -188,10 +216,10 @@
     {
       "id": "volleyball_round1",
       "sport": "Volleyball",
-      "category": "Runde 1",
+      "category": "Birklehof vs. Bieberstein",
       "round": 1,
-      "scheduledStart": "2026-05-10T18:55:00+02:00",
-      "scheduledEnd": "2026-05-10T19:40:00+02:00",
+      "scheduledStart": "2026-05-10T13:50:00+02:00",
+      "scheduledEnd": "2026-05-10T14:35:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,
@@ -202,7 +230,7 @@
     {
       "id": "volleyball_round2",
       "sport": "Volleyball",
-      "category": "Runde 2",
+      "category": "Bieberstein vs. St. Blasien",
       "round": 2,
       "scheduledStart": "2026-05-10T19:45:00+02:00",
       "scheduledEnd": "2026-05-10T20:30:00+02:00",
@@ -216,7 +244,7 @@
     {
       "id": "volleyball_round3",
       "sport": "Volleyball",
-      "category": "Runde 3",
+      "category": "Birklehof vs. St. Blasien",
       "round": 3,
       "scheduledStart": "2026-05-10T20:35:00+02:00",
       "scheduledEnd": "2026-05-10T21:20:00+02:00",

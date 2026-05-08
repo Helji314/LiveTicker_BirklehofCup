@@ -8,8 +8,8 @@
       "sport": "Hockey",
       "category": "Runde 1",
       "round": 1,
-      "scheduledStart": "2026-05-10T10:00:00+02:00",
-      "scheduledEnd": "2026-05-10T10:45:00+02:00",
+      "scheduledStart": "2026-05-10T09:30:00+02:00",
+      "scheduledEnd": "2026-05-10T11:20:00+02:00",
       "results": {
         "Birklehof": null,
         "Bieberstein": null,

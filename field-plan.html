@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Birklehof Cup Feld- und Hallenplan">
+  <title>Birklehof Cup - Feldplan</title>
+  <style>
+    :root {
+      --brand-dark: #004e47;
+      --brand-mid: #006b63;
+      --brand-accent: #9cbd28;
+      --ink: #1b2c29;
+      --paper: #f4f7f6;
+      --card: #ffffff;
+      --line: #d7e2df;
+      --pin-red: #d32828;
+      --pin-blue: #1f6de2;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html,
+    body {
+      font-family: "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+      background: radial-gradient(circle at top right, #0d7e75 0%, var(--brand-dark) 58%, #013c37 100%);
+      color: var(--ink);
+      min-height: 100%;
+    }
+
+    body {
+      padding: 1rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      background: var(--paper);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 14px 35px rgba(0, 0, 0, 0.26);
+    }
+
+    header {
+      background: linear-gradient(120deg, var(--brand-dark), var(--brand-mid));
+      color: white;
+      padding: 1.25rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 2.6vw, 1.8rem);
+      letter-spacing: 0.02em;
+    }
+
+    .subtitle {
+      opacity: 0.95;
+      font-size: 0.95rem;
+      margin-top: 0.2rem;
+    }
+
+    .btn {
+      display: inline-block;
+      border: 2px solid var(--brand-accent);
+      color: white;
+      text-decoration: none;
+      padding: 0.55rem 0.95rem;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: background 0.2s ease;
+    }
+
+    .btn:hover,
+    .btn:focus-visible {
+      background: var(--brand-accent);
+      outline: none;
+    }
+
+    main {
+      padding: 1rem;
+      display: grid;
+      gap: 1rem;
+    }
+
+    .plan-card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .plan-head {
+      padding: 0.85rem 1rem;
+      border-bottom: 1px solid var(--line);
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .plan-head h2 {
+      color: var(--brand-dark);
+      font-size: 1.1rem;
+    }
+
+    .plan-head p {
+      color: #4d5e5b;
+      font-size: 0.9rem;
+    }
+
+    .map-wrap {
+      position: relative;
+      isolation: isolate;
+    }
+
+    .map-wrap img {
+      width: 100%;
+      display: block;
+      height: auto;
+    }
+
+    .pin {
+      position: absolute;
+      transform: translate(-50%, -50%);
+      min-width: 34px;
+      height: 34px;
+      border-radius: 999px;
+      border: 3px solid #fff;
+      display: grid;
+      place-items: center;
+      color: #fff;
+      font-weight: 800;
+      font-size: 0.95rem;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+      text-shadow: 0 1px 2px rgba(0, 0, 0, 0.45);
+    }
+
+    .pin.red {
+      background: var(--pin-red);
+    }
+
+    .pin.blue {
+      background: var(--pin-blue);
+    }
+
+    .legend {
+      padding: 0.95rem 1rem 1.1rem;
+      display: grid;
+      gap: 0.55rem;
+      border-top: 1px solid var(--line);
+      background: #fcfefe;
+    }
+
+    .legend h3 {
+      color: var(--brand-dark);
+      font-size: 0.97rem;
+    }
+
+    .legend-row {
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      font-size: 0.94rem;
+    }
+
+    .dot {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .dot.red {
+      background: var(--pin-red);
+    }
+
+    .dot.blue {
+      background: var(--pin-blue);
+    }
+
+    .num {
+      font-weight: 800;
+      color: var(--brand-dark);
+      min-width: 20px;
+      display: inline-block;
+    }
+
+    footer {
+      padding: 0.85rem 1rem 1.2rem;
+      color: #4d5e5b;
+      font-size: 0.9rem;
+      text-align: center;
+    }
+
+    @media (max-width: 680px) {
+      body {
+        padding: 0.45rem;
+      }
+
+      .container {
+        border-radius: 10px;
+      }
+
+      .pin {
+        min-width: 28px;
+        height: 28px;
+        font-size: 0.8rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div>
+        <h1>Birklehof Cup - Feldplan</h1>
+        <p class="subtitle">Ubersicht der Feldeinteilung</p>
+      </div>
+      <a class="btn" href="index.html">Zuruck zum Live-Ticker</a>
+    </header>
+
+    <main>
+      <section class="plan-card" aria-labelledby="campus-title">
+        <div class="plan-head">
+          <h2 id="campus-title">Relevante Orte auf dem Campus</h2>
+          <p>Rot = Sportplätze, Blau = Unterbringung</p>
+        </div>
+
+        <div class="map-wrap">
+          <img src="Image%20(1).jpg" alt="Satellitenansicht des Birklehof-Campus mit markierten Sportfeldern und Wohnhäusern">
+
+          <span class="pin red" style="left: 16.4%; top: 57%;" title="1: Fussball">1</span>
+          <span class="pin red" style="left: 29.9%; top: 57%;" title="3: Badminton/Basketball">3</span>
+          <span class="pin red" style="left: 63.5%; top: 72%;" title="2: Volleyball">2</span>
+
+          <span class="pin blue" style="left: 90%; top: 68%;" title="1: Studio">1</span>
+          <span class="pin blue" style="left: 69%; top: 59%;" title="2: Saalbau">2</span>
+        </div>
+
+        <div class="legend" aria-label="Legende Campus">
+          <h3>Sportplätze (rot)</h3>
+          <div class="legend-row"><span class="dot red" aria-hidden="true"></span><span class="num">1</span>Fussball</div>
+          <div class="legend-row"><span class="dot red" aria-hidden="true"></span><span class="num">2</span>Volleyball</div>
+          <div class="legend-row"><span class="dot red" aria-hidden="true"></span><span class="num">3</span>Badminton / Basketball</div>
+          <h3 style="margin-top: 0.35rem;">Unterbringung (blau)</h3>
+          <div class="legend-row"><span class="dot blue" aria-hidden="true"></span><span class="num">1</span>Studio</div>
+          <div class="legend-row"><span class="dot blue" aria-hidden="true"></span><span class="num">2</span>Saalbau</div>
+        </div>
+      </section>
+
+      <section class="plan-card" aria-labelledby="hockey-title">
+        <div class="plan-head">
+          <h2 id="hockey-title">Externe Spielstatte: Hockey</h2>
+          <p>Route vom Campus zum Hockeyfeld</p>
+        </div>
+
+        <div class="map-wrap">
+          <img src="Image.jpg" alt="Satellitenansicht mit markierter Strecke zum Hockeyfeld und Zielpunkt 1">
+          <span class="pin red" style="left: 88%; top: 92%;" title="1: Hockeyfeld">1</span>
+        </div>
+
+        <div class="legend" aria-label="Legende Hockey">
+          <h3>Hockey</h3>
+          <div class="legend-row"><span class="dot red" aria-hidden="true"></span><span class="num">1</span>Hockeyfeld (extern)</div>
+        </div>
+      </section>
+    </main>
+
+  </div>
+</body>
+</html>

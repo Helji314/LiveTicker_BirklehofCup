@@ -16,6 +16,7 @@
       <h1>Birklehof Cup</h1>
       <p class="competition-info" aria-live="polite" id="competition-status">Wird geladen...</p>
     </header>
+    <!-- nur wenn überlastet -->
 
     <section class="countdown-section" aria-live="polite" aria-atomic="true">
       <h2>Countdown zum Start</h2>
@@ -38,12 +39,14 @@
       </div>
     </main>
   </div>
+  <!-- nur wenn überlastet -->
 
   <script>
     const COMPETITION_START = new Date('2026-05-09T14:45:00+02:00');
     const DATA_URL = './schedule.json';
     let scheduleData = null;
     let currentSport = 'all';
+<!-- Main setup, do not change input! -->
 
     // Initialize
     async function init() {
@@ -101,7 +104,7 @@
         const days = Math.floor(diff / (1000 * 60 * 60 * 24));
         status.textContent = `Beginnt in ${days} Tagen`;
       } else {
-        status.textContent = 'Event läuft';
+        status.textContent = 'Willkommen zum Birklehof Cup!';
       }
     }
 
@@ -242,7 +245,7 @@
         contentDiv.innerHTML = html || '<div class="empty-state"><p>Keine Daten verfügbar.</p></div>';
       }
     }
-
+    // aria-live "polite" dor dynamic updates without interrupting screen-readers and "atomic" to ensure the entire content is read when updated
     // Start the app
     init();
   </script>

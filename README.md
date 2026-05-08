@@ -9,7 +9,7 @@
         "Birklehof": null,<br>
         "Bieberstein": null,<br>
         "St. Blasien": null<br>
-      },<br>
+      },<br><br><br>
 sind für dich interessant. Dies ist die JSON-Datenbank, von der der Ticker live seine Daten nimmt - jede gespeicherte Veränderung beeinflusst also das Live-System!</p>
 <p>Bitte verändere nichts an diesem Code, außer den Werten von "results" der einzelnen Schulen!</p>
 <p>Auch die Zeit wird automatisch aktualisiert, jede außerplanmäßige Veränderung könnte das System zum Abbruch zwingen oder einen Fehler auslösen.<br>

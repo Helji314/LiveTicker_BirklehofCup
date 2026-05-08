@@ -9,7 +9,7 @@
         "Birklehof": null,<br>
         "Bieberstein": null,<br>
         "St. Blasien": null<br>
-      },<br><br><br>
+      },<br><br>
 sind für dich interessant. Dies ist die JSON-Datenbank, von der der Ticker live seine Daten nimmt - jede gespeicherte Veränderung beeinflusst also das Live-System!</p>
 <p>Bitte verändere nichts an diesem Code, außer den Werten von "results" der einzelnen Schulen!</p>
 <p>Auch die Zeit wird automatisch aktualisiert, jede außerplanmäßige Veränderung könnte das System zum Abbruch zwingen oder einen Fehler auslösen.<br>
@@ -18,4 +18,6 @@ Sollte dies der Fall sein, rufe mich bitte unter +49 159 060 43637 an. </p>
 <br><br>
 <p>Ist ein Spiel beendet und der Spielestand kann online gestellt werden, speichere deine Ergebnisse und trage sie zur Sicherheit auch auf dem Papier ein!</p>
 <p>Genauere Anweisungen zum Onlinestellen der Inhalte erhältst du vor Spielbeginn, es gibt aber auch online Dokumentationen wie <a href="https://github.com/orgs/community/discussions/43766">diese hier</a>.</p>
-<p>Viel Spaß und Erfolg beim Birklehof Cup!</p>
+<p>Viel Spaß und Erfolg beim Birklehof Cup!</p><br><br>
+
+Alle diese Daten sind auf Zentraleuropäische Sommerzeit ausgelegt. Für Events in anderen Jahreszeiten bitte anpassen!

@@ -39,8 +39,8 @@
       "scheduledStart": "2026-05-09T15:20:00+02:00",
       "scheduledEnd": "2026-05-09T15:45:00+02:00",
       "results": {
-        "Birklehof": null,
-        "Bieberstein": null,
+        "Birklehof": 5,
+        "Bieberstein": 0,
         "St. Blasien": null
       },
       "status": "scheduled"

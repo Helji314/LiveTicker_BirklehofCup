@@ -4,20 +4,6 @@
   "schools": ["Birklehof", "Bieberstein", "St. Blasien"],
   "matches": [
     {
-      "id": "Wissensquiz",
-      "sport": "Wissensquiz",
-      "category": "Wissensquiz",
-      "round": 1,
-      "scheduledStart": "2026-05-09T13:45:00+02:00",
-      "scheduledEnd": "2026-05-09T14:15:00+02:00",
-      "results": {
-        "Birklehof": 3,
-        "Bieberstein": 2,
-        "St. Blasien": 1
-      },
-      "status": "scheduled"
-    },
-    {
       "id": "hockey_round1",
       "sport": "Hockey",
       "category": "Birklehof vs. St. Blasien",

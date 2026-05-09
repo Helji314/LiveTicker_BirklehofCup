@@ -2,9 +2,7 @@
   "competitionName": "Birklehof Cup",
   "competitionStart": "2026-05-09T14:45:00+02:00",
   "schools": ["Birklehof", "Bieberstein", "St. Blasien"],
-  "matches": [
-      "status": "scheduled"
-    },
+  "matches": 
     {
       "id": "hockey_round1",
       "sport": "Hockey",

@@ -137,8 +137,22 @@
       "scheduledStart": "2026-05-10T13:50:00+02:00",
       "scheduledEnd": "2026-05-10T14:35:00+02:00",
       "results": {
-        "Birklehof": 21,
-        "Bieberstein": 11,
+        "Birklehof": 25,
+        "Bieberstein": 15,
+        "St. Blasien": null
+      },
+      "status": "scheduled"
+    },
+    {
+      "id": "volleyball_round2",
+      "sport": "Volleyball",
+      "category": "Birklehof vs. Bieberstein",
+      "round": 2,
+      "scheduledStart": "2026-05-10T13:50:00+02:00",
+      "scheduledEnd": "2026-05-10T14:35:00+02:00",
+      "results": {
+        "Birklehof": 25,
+        "Bieberstein": 16,
         "St. Blasien": null
       },
       "status": "scheduled"
